@@ -18,17 +18,20 @@ app.get('/', function(req, res) {
             if (!error && response.statusCode === 200) {
                 let data = JSON.parse(body)
                 if (data.result.status == 'OK') {
+                    options.url =   'https://api.urlmeta.org/?url=';
                     res.json({
                         status: 200,
                         data: data
                     });
                 } else {
+                    options.url =   'https://api.urlmeta.org/?url=';
                     res.json({
                         status: 301,
                         data: 'unable to reach to URL!'
                     });
                 }
             } else {
+                options.url =   'https://api.urlmeta.org/?url=';
                 res.json({
                     status: 404,
                     message: 'unable to reach to URL!'
